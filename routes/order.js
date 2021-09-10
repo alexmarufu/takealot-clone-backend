@@ -26,7 +26,7 @@ router.post("/addorder", requireSignIn, (req, res) => {
         if(error) {
             res.json({error: error });
         } else {
-            const orderExists = result.find((item) => item.orderId === orderId);
+            const orderExists = result.some((item) => item.orderId === orderId);
             if(orderExists) {
                 res.json({ error: "order exists" });
             } else {
