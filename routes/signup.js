@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
 
   db.query(sql, async (err, result) => {
 
-    const user = result.find((item) => item.email === email);
+    const user = result.some((item) => item.email === email);
 
    if (user) {
       res.json({error: "user already exists"});
