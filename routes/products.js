@@ -21,7 +21,7 @@ router.post("/addproduct", (req, res) => {
         if(error) {
             return res.json({ error: error})
         } else if(result) {
-            const product = result.find((item) => item.slug === slug);
+            const product = result.some((item) => item.slug === slug);
             console.log(product);
             if(product) {
                 return res.json({ error: "product already exists " });
