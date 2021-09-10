@@ -25,7 +25,7 @@ router.post("/", (req, res) => {
            res.status(400).json({ error: err })
          } else {
 
-            const user = result.find((item) => item.email === email);
+            const user = result.some((item) => item.email === email);
               console.log(user)
             if(user) {
               const verifiedPassword = await bcrypt.compare(password, user.password);
