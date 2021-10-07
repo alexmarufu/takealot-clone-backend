@@ -23,7 +23,7 @@ router.post("/addcart", requireLogin, (req, res) => {
 
             const myProducts = result.filter(item => item.userId === req.user.userId);
 
-            const product = myProducts.some(item => item.slug === slug);
+            const product = myProducts.find(item => item.slug === slug);
             
             console.log(product)
             if(product) {
